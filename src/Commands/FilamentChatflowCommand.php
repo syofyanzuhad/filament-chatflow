@@ -3,7 +3,6 @@
 namespace Syofyanzuhad\FilamentChatflow\Commands;
 
 use Illuminate\Console\Command;
-use Syofyanzuhad\FilamentChatflow\Database\Seeders\ChatflowSeeder;
 
 class FilamentChatflowCommand extends Command
 {
@@ -24,7 +23,7 @@ class FilamentChatflowCommand extends Command
             return self::FAILURE;
         }
 
-        $seeder = new $seederClass();
+        $seeder = new $seederClass;
         $seeder->setCommand($this);
         $seeder->__invoke();
 
