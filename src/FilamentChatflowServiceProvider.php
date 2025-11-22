@@ -58,7 +58,27 @@ class FilamentChatflowServiceProvider extends PackageServiceProvider
         }
     }
 
-    public function packageRegistered(): void {}
+    public function packageRegistered(): void
+    {
+        // Register Livewire components
+        \Livewire\Livewire::component('chatflow-widget', \Syofyanzuhad\FilamentChatflow\Livewire\ChatWidget::class);
+
+        // Register event listeners
+        $this->app['events']->listen(
+            \Syofyanzuhad\FilamentChatflow\Events\ConversationStarted::class,
+            \Syofyanzuhad\FilamentChatflow\Listeners\LogConversationStart::class
+        );
+
+        $this->app['events']->listen(
+            \Syofyanzuhad\FilamentChatflow\Events\ConversationEnded::class,
+            [\Syofyanzuhad\FilamentChatflow\Listeners\SendConversationEmail::class, \Syofyanzuhad\FilamentChatflow\Listeners\UpdateAnalytics::class]
+        );
+
+        $this->app['events']->listen(
+            \Syofyanzuhad\FilamentChatflow\Events\MessageSent::class,
+            \Syofyanzuhad\FilamentChatflow\Listeners\LogMessage::class
+        );
+    }
 
     public function packageBooted(): void
     {
@@ -129,7 +149,9 @@ class FilamentChatflowServiceProvider extends PackageServiceProvider
      */
     protected function getRoutes(): array
     {
-        return [];
+        return [
+            'api',
+        ];
     }
 
     /**
@@ -146,7 +168,11 @@ class FilamentChatflowServiceProvider extends PackageServiceProvider
     protected function getMigrations(): array
     {
         return [
-            'create_filament-chatflow_table',
+            'create_chatflow_table',
+            'create_chatflow_steps_table',
+            'create_chatflow_conversations_table',
+            'create_chatflow_messages_table',
+            'create_chatflow_analytics_table',
         ];
     }
 }

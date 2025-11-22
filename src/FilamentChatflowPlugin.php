@@ -14,7 +14,14 @@ class FilamentChatflowPlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-        //
+        $panel
+            ->resources([
+                \Syofyanzuhad\FilamentChatflow\Filament\Resources\ChatflowResource::class,
+                \Syofyanzuhad\FilamentChatflow\Filament\Resources\ConversationResource::class,
+            ])
+            ->widgets([
+                \Syofyanzuhad\FilamentChatflow\Filament\Widgets\ChatflowStatsWidget::class,
+            ]);
     }
 
     public function boot(Panel $panel): void
