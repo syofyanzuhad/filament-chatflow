@@ -2,6 +2,7 @@
 
 namespace Syofyanzuhad\FilamentChatflow\Filament\Resources;
 
+use Filament\Actions;
 use Filament\Forms;
 use Filament\Infolists;
 use Filament\Resources\Resource;
@@ -133,12 +134,12 @@ class ConversationResource extends Resource
                             ->when($data['created_until'], fn ($q, $date) => $q->whereDate('started_at', '<=', $date));
                     }),
             ])
-            ->actions([
-                Tables\Actions\ViewAction::make(),
+            ->recordActions([
+                Actions\ViewAction::make(),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+            ->groupedBulkActions([
+                Actions\BulkActionGroup::make([
+                    Actions\DeleteBulkAction::make(),
                 ]),
             ])
             ->defaultSort('started_at', 'desc');

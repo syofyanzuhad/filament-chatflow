@@ -2,6 +2,7 @@
 
 namespace Syofyanzuhad\FilamentChatflow\Filament\Resources;
 
+use Filament\Actions;
 use Filament\Forms;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -162,28 +163,28 @@ class ChatflowResource extends Resource
                         'top-left' => 'Top Left',
                     ]),
             ])
-            ->actions([
-                Tables\Actions\ActionGroup::make([
-                    Tables\Actions\ViewAction::make(),
-                    Tables\Actions\EditAction::make(),
-                    Tables\Actions\Action::make('duplicate')
+            ->recordActions([
+                Actions\ActionGroup::make([
+                    Actions\ViewAction::make(),
+                    Actions\EditAction::make(),
+                    Actions\Action::make('duplicate')
                         ->icon('heroicon-o-document-duplicate')
                         ->requiresConfirmation()
                         ->action(function (Chatflow $record) {
                             $builder = app(\Syofyanzuhad\FilamentChatflow\Services\ChatflowBuilder::class);
                             $builder->duplicateFlow($record, $record->name . ' (Copy)');
                         }),
-                    Tables\Actions\DeleteAction::make(),
+                    Actions\DeleteAction::make(),
                 ]),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\BulkAction::make('activate')
+            ->groupedBulkActions([
+                Actions\BulkActionGroup::make([
+                    Actions\DeleteBulkAction::make(),
+                    Actions\BulkAction::make('activate')
                         ->icon('heroicon-o-check-circle')
                         ->requiresConfirmation()
                         ->action(fn ($records) => $records->each->update(['is_active' => true])),
-                    Tables\Actions\BulkAction::make('deactivate')
+                    Actions\BulkAction::make('deactivate')
                         ->icon('heroicon-o-x-circle')
                         ->requiresConfirmation()
                         ->action(fn ($records) => $records->each->update(['is_active' => false])),
