@@ -5,7 +5,9 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/syofyanzuhad/filament-chatflow/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/syofyanzuhad/filament-chatflow/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/syofyanzuhad/filament-chatflow.svg?style=flat-square)](https://packagist.org/packages/syofyanzuhad/filament-chatflow)
 
-A powerful conversational flow builder plugin for Filament v3. Create interactive chatbot experiences with conditional logic, multi-language support, and comprehensive analytics.
+A powerful conversational flow builder plugin for Filament v4. Create interactive chatbot experiences with conditional logic, multi-language support, and comprehensive analytics.
+
+> **Note:** This branch supports Filament v4. For Filament v3 support, use version `^1.0`.
 
 ## Features
 
@@ -22,9 +24,9 @@ A powerful conversational flow builder plugin for Filament v3. Create interactiv
 
 ## Requirements
 
-- PHP 8.3 or higher
+- PHP 8.2 or higher
 - Laravel 12.x
-- Filament 3.x
+- Filament 4.x
 - Livewire 3.x
 
 ## Installation
