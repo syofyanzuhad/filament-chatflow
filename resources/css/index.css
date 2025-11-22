@@ -1,1 +1,37 @@
 @import '../../vendor/filament/filament/resources/css/theme.css';
+
+/* Chatflow Widget Animations */
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.chatflow-widget-enter {
+    animation: slideUp 0.3s ease-out;
+}
+
+.chatflow-message-enter {
+    animation: slideUp 0.2s ease-out;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .chatflow-widget {
+        color-scheme: dark;
+    }
+}
