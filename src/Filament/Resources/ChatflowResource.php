@@ -40,7 +40,8 @@ class ChatflowResource extends Resource
                             ->default(true)
                             ->inline(false),
                     ])
-                    ->columns(2),
+                    ->columns(2)
+                    ->columnSpanFull(),
 
                 Forms\Components\Section::make('Welcome Message')
                     ->schema([
@@ -53,7 +54,8 @@ class ChatflowResource extends Resource
                                 'id' => 'Halo! Ada yang bisa saya bantu?',
                             ])
                             ->columnSpanFull(),
-                    ]),
+                    ])
+                    ->columnSpanFull(),
 
                 Forms\Components\Section::make('Widget Settings')
                     ->schema([
@@ -86,7 +88,8 @@ class ChatflowResource extends Resource
                             ->default(false)
                             ->inline(false),
                     ])
-                    ->columns(2),
+                    ->columns(2)
+                    ->columnSpanFull(),
 
                 Forms\Components\Section::make('Email Settings')
                     ->schema([
@@ -102,7 +105,8 @@ class ChatflowResource extends Resource
                             ->visible(fn (Forms\Get $get) => $get('settings.email_enabled'))
                             ->columnSpanFull(),
                     ])
-                    ->columns(2),
+                    ->columns(2)
+                    ->columnSpanFull(),
             ]);
     }
 
