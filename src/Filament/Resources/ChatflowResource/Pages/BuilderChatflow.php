@@ -4,9 +4,9 @@ namespace Syofyanzuhad\FilamentChatflow\Filament\Resources\ChatflowResource\Page
 
 use Filament\Actions;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\Page;
+use Filament\Schemas\Schema;
 use Syofyanzuhad\FilamentChatflow\Filament\Resources\ChatflowResource;
 use Syofyanzuhad\FilamentChatflow\Models\Chatflow;
 use Syofyanzuhad\FilamentChatflow\Models\ChatflowStep;
@@ -36,10 +36,10 @@ class BuilderChatflow extends Page
         ]);
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Forms\Components\Repeater::make('steps')
                     ->label('Chatflow Steps')
                     ->schema([

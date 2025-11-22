@@ -3,10 +3,9 @@
 namespace Syofyanzuhad\FilamentChatflow\Filament\Resources;
 
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Infolists;
-use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Syofyanzuhad\FilamentChatflow\Filament\Resources\ConversationResource\Pages;
@@ -26,10 +25,10 @@ class ConversationResource extends Resource
 
     protected static ?string $pluralLabel = 'Conversations';
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Forms\Components\Select::make('chatflow_id')
                     ->relationship('chatflow', 'name')
                     ->required()
@@ -145,10 +144,10 @@ class ConversationResource extends Resource
             ->defaultSort('started_at', 'desc');
     }
 
-    public static function infolist(Infolist $infolist): Infolist
+    public static function infolist(Schema $schema): Schema
     {
-        return $infolist
-            ->schema([
+        return $schema
+            ->components([
                 Infolists\Components\Section::make('Conversation Details')
                     ->schema([
                         Infolists\Components\TextEntry::make('chatflow.name')
