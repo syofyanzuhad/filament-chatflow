@@ -64,7 +64,8 @@ class BuilderChatflow extends Page
                                     ->label('Content (Indonesian)')
                                     ->required()
                                     ->rows(3),
-                            ]),
+                            ])
+                            ->columnSpanFull(),
 
                         Forms\Components\Repeater::make('options')
                             ->label('Options')
@@ -112,7 +113,8 @@ class BuilderChatflow extends Page
                                             ->label('Content (Indonesian)')
                                             ->required()
                                             ->rows(2),
-                                    ]),
+                                    ])
+                                    ->columnSpanFull(),
 
                                 Forms\Components\Repeater::make('options')
                                     ->label('Options')
