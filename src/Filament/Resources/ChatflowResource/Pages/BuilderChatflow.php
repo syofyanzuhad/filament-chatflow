@@ -16,7 +16,7 @@ class BuilderChatflow extends Page
 {
     protected static string $resource = ChatflowResource::class;
 
-    protected static string $view = 'filament-chatflow::filament.pages.chatflow-builder';
+    protected string $view = 'filament-chatflow::filament.pages.chatflow-builder';
 
     public ?array $data = [];
 
