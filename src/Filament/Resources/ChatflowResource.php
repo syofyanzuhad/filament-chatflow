@@ -16,7 +16,7 @@ class ChatflowResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-left-right';
 
-    protected static ?string $navigationGroup = 'Chatflow';
+    protected static string | \UnitEnum | null $navigationGroup = 'Chatflow';
 
     protected static ?int $navigationSort = 1;
 
