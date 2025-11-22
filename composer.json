@@ -40,7 +40,8 @@
     "autoload": {
         "psr-4": {
             "Syofyanzuhad\\FilamentChatflow\\": "src/",
-            "Syofyanzuhad\\FilamentChatflow\\Database\\Factories\\": "database/factories/"
+            "Syofyanzuhad\\FilamentChatflow\\Database\\Factories\\": "database/factories/",
+            "Syofyanzuhad\\FilamentChatflow\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
