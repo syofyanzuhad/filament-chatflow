@@ -14,7 +14,7 @@ class ChatflowResource extends Resource
 {
     protected static ?string $model = Chatflow::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-left-right';
+    protected static \BackedEnum | string | null $navigationIcon = 'heroicon-o-chat-bubble-left-right';
 
     protected static string | \UnitEnum | null $navigationGroup = 'Chatflow';
 
