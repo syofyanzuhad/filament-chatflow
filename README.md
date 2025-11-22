@@ -7,6 +7,8 @@
 
 A powerful conversational flow builder plugin for Filament v3. Create interactive chatbot experiences with conditional logic, multi-language support, and comprehensive analytics.
 
+> **Note:** This is the stable branch for Filament v3. For Filament v4 support, use the [`v4`](https://github.com/syofyanzuhad/filament-chatflow/tree/v4) branch or install version `^2.0`.
+
 ## Features
 
 - 🎨 **Visual Flow Builder** - Build chat flows with an intuitive form-based interface

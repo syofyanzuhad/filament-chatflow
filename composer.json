@@ -1,6 +1,6 @@
 {
     "name": "syofyanzuhad/filament-chatflow",
-    "description": "This is my package filament-chatflow",
+    "description": "A conversational chatbot flow builder plugin for Filament v3 with conditional logic and floating chat widget",
     "keywords": [
         "syofyanzuhad",
         "laravel",
