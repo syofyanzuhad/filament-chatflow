@@ -6,6 +6,7 @@ use Filament\Actions;
 use Filament\Forms;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\Page;
+use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Schema;
 use Syofyanzuhad\FilamentChatflow\Filament\Resources\ChatflowResource;
 use Syofyanzuhad\FilamentChatflow\Models\Chatflow;
@@ -53,7 +54,7 @@ class BuilderChatflow extends Page
                             ->reactive()
                             ->columnSpanFull(),
 
-                        Forms\Components\Grid::make(2)
+                        Grid::make(2)
                             ->schema([
                                 Forms\Components\Textarea::make('content.en')
                                     ->label('Content (English)')
@@ -74,7 +75,7 @@ class BuilderChatflow extends Page
                                     ->required()
                                     ->maxLength(255),
 
-                                Forms\Components\Grid::make(2)
+                                Grid::make(2)
                                     ->schema([
                                         Forms\Components\TextInput::make('label.en')
                                             ->label('Label (English)')
@@ -102,7 +103,7 @@ class BuilderChatflow extends Page
                                     ->required()
                                     ->reactive(),
 
-                                Forms\Components\Grid::make(2)
+                                Grid::make(2)
                                     ->schema([
                                         Forms\Components\Textarea::make('content.en')
                                             ->label('Content (English)')

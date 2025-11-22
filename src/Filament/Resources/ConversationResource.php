@@ -6,6 +6,7 @@ use Filament\Actions;
 use Filament\Forms;
 use Filament\Infolists;
 use Filament\Resources\Resource;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -149,7 +150,7 @@ class ConversationResource extends Resource
     {
         return $schema
             ->components([
-                Infolists\Components\Section::make('Conversation Details')
+                Section::make('Conversation Details')
                     ->schema([
                         Infolists\Components\TextEntry::make('chatflow.name')
                             ->label('Chatflow'),
@@ -187,14 +188,14 @@ class ConversationResource extends Resource
                     ])
                     ->columns(3),
 
-                Infolists\Components\Section::make('Metadata')
+                Section::make('Metadata')
                     ->schema([
                         Infolists\Components\KeyValueEntry::make('metadata')
                             ->columnSpanFull(),
                     ])
                     ->collapsible(),
 
-                Infolists\Components\Section::make('Messages Timeline')
+                Section::make('Messages Timeline')
                     ->schema([
                         Infolists\Components\RepeatableEntry::make('messages')
                             ->schema([

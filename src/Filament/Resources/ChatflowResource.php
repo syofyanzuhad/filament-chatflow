@@ -5,6 +5,7 @@ namespace Syofyanzuhad\FilamentChatflow\Filament\Resources;
 use Filament\Actions;
 use Filament\Forms;
 use Filament\Resources\Resource;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -25,7 +26,7 @@ class ChatflowResource extends Resource
     {
         return $schema
             ->components([
-                Forms\Components\Section::make('Basic Information')
+                Section::make('Basic Information')
                     ->schema([
                         Forms\Components\TextInput::make('name')
                             ->required()
@@ -44,7 +45,7 @@ class ChatflowResource extends Resource
                     ->columns(2)
                     ->columnSpanFull(),
 
-                Forms\Components\Section::make('Welcome Message')
+                Section::make('Welcome Message')
                     ->schema([
                         Forms\Components\KeyValue::make('welcome_message')
                             ->label('Multi-language Welcome Messages')
@@ -58,7 +59,7 @@ class ChatflowResource extends Resource
                     ])
                     ->columnSpanFull(),
 
-                Forms\Components\Section::make('Widget Settings')
+                Section::make('Widget Settings')
                     ->schema([
                         Forms\Components\Select::make('position')
                             ->options([
@@ -92,7 +93,7 @@ class ChatflowResource extends Resource
                     ->columns(2)
                     ->columnSpanFull(),
 
-                Forms\Components\Section::make('Email Settings')
+                Section::make('Email Settings')
                     ->schema([
                         Forms\Components\Toggle::make('settings.email_enabled')
                             ->label('Send Email Transcript')
