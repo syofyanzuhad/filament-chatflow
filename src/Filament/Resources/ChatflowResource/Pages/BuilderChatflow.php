@@ -7,6 +7,7 @@ use Filament\Forms;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\Page;
 use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 use Syofyanzuhad\FilamentChatflow\Filament\Resources\ChatflowResource;
 use Syofyanzuhad\FilamentChatflow\Models\Chatflow;
@@ -86,7 +87,7 @@ class BuilderChatflow extends Page
                                             ->required(),
                                     ]),
                             ])
-                            ->visible(fn (Forms\Get $get) => $get('type') === ChatflowStep::TYPE_QUESTION)
+                            ->visible(fn (Get $get) => $get('type') === ChatflowStep::TYPE_QUESTION)
                             ->defaultItems(0)
                             ->columnSpanFull()
                             ->collapsible(),
@@ -129,11 +130,11 @@ class BuilderChatflow extends Page
                                             ->label('Label (ID)')
                                             ->required(),
                                     ])
-                                    ->visible(fn (Forms\Get $get) => $get('type') === ChatflowStep::TYPE_QUESTION)
+                                    ->visible(fn (Get $get) => $get('type') === ChatflowStep::TYPE_QUESTION)
                                     ->defaultItems(0)
                                     ->columnSpanFull(),
                             ])
-                            ->visible(fn (Forms\Get $get) => $get('type') !== ChatflowStep::TYPE_END)
+                            ->visible(fn (Get $get) => $get('type') !== ChatflowStep::TYPE_END)
                             ->defaultItems(0)
                             ->columnSpanFull()
                             ->collapsible()

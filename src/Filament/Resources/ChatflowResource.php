@@ -6,6 +6,7 @@ use Filament\Actions;
 use Filament\Forms;
 use Filament\Resources\Resource;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -104,7 +105,7 @@ class ChatflowResource extends Resource
                         Forms\Components\TagsInput::make('settings.email_recipients')
                             ->label('Additional Email Recipients')
                             ->placeholder('Add email addresses')
-                            ->visible(fn (Forms\Get $get) => $get('settings.email_enabled'))
+                            ->visible(fn (Get $get) => $get('settings.email_enabled'))
                             ->columnSpanFull(),
                     ])
                     ->columns(2)
